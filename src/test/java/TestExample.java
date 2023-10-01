@@ -10,31 +10,28 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 public class TestExample {
    
-   @Test
-   public void testNode()
-   {
-      Node<Integer> b = new Node<Integer>(7);
-      Node<Integer> a = new Node<Integer>(18, b);
+   int[] a;
+   
+   @BeforeAll
+   static void initAll() {      
+   }
 
-      int v = a.getValue();
-      assertEquals(v, 18);
-     
-      assertEquals(a.getNext(), b);          
+   @BeforeEach
+   void init() {
+      int[] a = new int[] { 5, 8, 1, 5, 9, 2 };
    }
    
    @Test
-   public void testOutput()
+   public void testMax()
    {
-      PrintStream originalOut = System.out;
-
-      ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-      System.setOut(new PrintStream(outContent));
-      
-      Node<Integer> b = new Node<Integer>(7);
-      Node<Integer> a = new Node<Integer>(18, b);
-      System.out.println(a);
-      assertEquals("18 ==> 7 ==> null\n", outContent.toString());
-      
-      System.setOut(originalOut);
+      int m = Main.findMax(a);
+      assertEquals(m, 9);     
+   }
+   
+   @Test
+   public void testMin()
+   {
+      int m = Main.findMin(a);
+      assertEquals(m, 1);     
    }
 }
