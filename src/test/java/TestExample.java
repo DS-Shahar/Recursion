@@ -18,7 +18,7 @@ public class TestExample {
 
    @BeforeEach
    void init() {
-      int[] a = new int[] { 5, 8, 1, 5, 9, 2 };
+      a = new int[] { 5, 8, 1, 5, 9, 2 };
    }
    
    @Test
